@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<AssemblyName>TextDiffOptions</AssemblyName>
+		<RootNamespace>TextDiffOptions</RootNamespace>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<ApplicationIcon>TextDiffOptions.ico</ApplicationIcon>
+		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<StartupObject>TextDiffOptions.Program</StartupObject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ApplicationDefinition Remove="**\*.xaml" />
+	</ItemGroup>
+
+</Project>
