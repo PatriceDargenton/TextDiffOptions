@@ -11,12 +11,19 @@ namespace TextDiffOptions
 {
     internal static class Program
     {
+
+#if DEBUG
+        public const bool IsDebug = true;
+        public const bool IsRelease = false;
+#else
+        public const bool IsDebug = false;
+        public const bool IsRelease = true;
+#endif
+
         // ─── Application metadata ─────────────────────────────────────────────────
-        
-        public const string AppVersionDate = "21/06/2026";
 
         public static readonly string AppName =
-            Assembly.GetEntryAssembly()?.GetName().Name ?? "TextDiffOptions";
+            Assembly.GetEntryAssembly()?.GetName().Name ?? Const.appTitle;
 
         public static readonly string AppVersion = GetVersion();
 
@@ -40,7 +47,7 @@ namespace TextDiffOptions
             // Add support for legacy code pages (e.g., Windows-1252)
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-            if (Const.IsDebug)
+            if (Program.IsDebug)
             {
                 Start(args);
                 return;
@@ -85,7 +92,7 @@ namespace TextDiffOptions
             }
 
 Launch:
-            if (Const.IsRelease && !syntaxOk)
+            if (Program.IsRelease && !syntaxOk)
             {
                 MessageBox.Show(
                     "Syntax: paths of the two text files to compare" + Const.newlineCRLF +

@@ -3,14 +3,8 @@ namespace TextDiffOptions
 {
     internal static class Const
     {
-
-#if DEBUG
-        public const bool IsDebug = true;
-        public const bool IsRelease = false;
-#else
-        public const bool IsDebug = false;
-        public const bool IsRelease = true;
-#endif
+        public const string appTitle = "TextDiffOptions";
+        public const string dateVersion = "21/06/2026";
 
         public const string newline = "\n"; // Line Feed
         public const string newlineCRLF = "\r\n"; // Carriage Return + Line Feed: Environment.NewLine

@@ -71,8 +71,8 @@ namespace TextDiffOptions
         private void frmTextDiffOptions_Shown(object sender, EventArgs e)
         {
             string title = "TextDiffOptions " + Program.AppVersion + 
-                " (" + Program.AppVersionDate + ") - Options interface for TextDiffToHtml";
-            if (Const.IsDebug) title += " - Debug";
+                " (" + Const.dateVersion + ") - Options interface for TextDiffToHtml";
+            if (Program.IsDebug) title += " - Debug";
             Text = title;
 
             bool configMode = false;
@@ -86,7 +86,7 @@ namespace TextDiffOptions
                 if (!FileHelper.FileExists(FilePath2, prompt: true)) configMode = true;
             }
 
-            if (configMode && Const.IsRelease)
+            if (configMode && Program.IsRelease)
             {
                 cmdAddShortcut.Visible = true;
                 cmdRemoveShortcut.Visible = true;
@@ -128,7 +128,7 @@ namespace TextDiffOptions
                     chkPaginate.Checked = true;
             }
 
-            if (Const.IsDebug)
+            if (Program.IsDebug)
             {
                 chkAll.Checked = false;
                 chkAccents.Checked = false;
