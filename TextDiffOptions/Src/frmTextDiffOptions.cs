@@ -105,6 +105,12 @@ namespace TextDiffOptions
 
             string path1 = FilePath1;
             string path2 = FilePath2;
+            if (Program.IsDebug)
+            {
+                // AppContext.BaseDirectory: Application.StartupPath() equivalent in .Net9
+                path1 = AppContext.BaseDirectory + "\\File1Orig.txt"; 
+                path2 = AppContext.BaseDirectory + "\\File2Orig.txt";
+            }
 
             if (lbAlgorithm.Items.Count > 0)
                 lbAlgorithm.SelectedItem = lbAlgorithm.Items.Contains("WinMerge")
@@ -131,18 +137,18 @@ namespace TextDiffOptions
             if (Program.IsDebug)
             {
                 chkAll.Checked = false;
-                chkAccents.Checked = false;
-                chkPunctuation.Checked = false;
-                chkCase.Checked = false;
+                chkAccents.Checked = true;
+                chkPunctuation.Checked = true;
+                chkCase.Checked = true;
                 chkNonBreakingSpaces.Checked = false;
                 chkSpaces.Checked = false;
                 chkQuotes.Checked = false;
                 chkInfo.Checked = true;
-                chkSentences.Checked = false;
-                chkPaginate.Checked = false;
-                chkRatio.Checked = false;
-                chkParagraphs.Checked = false;
-                chkNumbers.Checked = false;
+                chkSentences.Checked = true;
+                chkPaginate.Checked = true;
+                chkRatio.Checked = true;
+                chkParagraphs.Checked = true;
+                chkNumbers.Checked = true;
             }
 
             lblPath1.Text = path1;

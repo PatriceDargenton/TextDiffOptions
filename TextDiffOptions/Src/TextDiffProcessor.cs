@@ -357,6 +357,13 @@ namespace TextDiffOptions
                 .Replace(" " + closeFrench, doubleQuote)
                 .Replace(openFrench, doubleQuote)
                 .Replace(closeFrench, doubleQuote);
+
+            if (Program.IsDebug)
+            {
+                //System.Diagnostics.Debug.WriteLine("Before normalization: " + source.ToString());
+                //System.Diagnostics.Debug.WriteLine("After normalization: " + dest.ToString());
+            }
+
         }
 
         // ─── Hyphenated word merging ──────────────────────────────────────────────
