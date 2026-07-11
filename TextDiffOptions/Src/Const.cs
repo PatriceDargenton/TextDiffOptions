@@ -4,7 +4,7 @@ namespace TextDiffOptions
     internal static class Const
     {
         public const string appTitle = "TextDiffOptions";
-        public const string dateVersion = "10/07/2026";
+        public const string dateVersion = "11/07/2026";
 
         public const string newline = "\n"; // Line Feed
         public const string newlineCRLF = "\r\n"; // Carriage Return + Line Feed: Environment.NewLine

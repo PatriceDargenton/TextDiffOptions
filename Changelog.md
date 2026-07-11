@@ -6,7 +6,7 @@ All notable changes to the TextDiffOptions project will be documented in this fi
 ### Changed
 ### Added
 
-## [1.02] - 2026-07-10
+## [1.02] - 2026-07-11
 ### Fixed
 - Quote normalization
 
