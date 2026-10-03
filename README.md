@@ -39,4 +39,6 @@ See [Changelog.md](Changelog.md)
 
 # Links
 
-See also: [TextDiffToHtml](https://github.com/PatriceDargenton/TextDiffToHtml)
+See also:
+- [DocToText](https://github.com/PatriceDargenton/DocToText): MS-Word .docx & .doc converter to plain text (.txt) and Markdown (.md) in C#
+- [TextDiffToHtml](https://github.com/PatriceDargenton/TextDiffToHtml): Side by side Text diff to html in C#

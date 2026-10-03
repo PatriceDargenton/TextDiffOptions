@@ -194,7 +194,7 @@ Retry:
             }
         }
 
-        public static bool WriteFile(string filePath, StringBuilder content,
+        public static bool WriteFileMain(string filePath, StringBuilder content,
             ref string errorMessage,
             bool defaultEncoding = false,
             bool iso88591 = false,
@@ -244,6 +244,31 @@ Retry:
             }
         }
 
+        public static bool WriteFileEncod(string filePath, StringBuilder content,
+            Encoding encod, ref string errorMessage, bool prompt = true)
+        {
+            if (!DeleteFile(filePath, promptError: prompt)) return false;
+
+            if (string.IsNullOrEmpty(filePath))
+                throw new ArgumentNullException(nameof(filePath));
+            if (content == null)
+                throw new ArgumentNullException(nameof(content));
+
+            try
+            {
+                using (var sw = new StreamWriter(filePath, append: false, encod))
+                    sw.Write(content.ToString());
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string msg = "Cannot write data to file:" + newlineCRLF + filePath;
+                errorMessage = msg + newlineCRLF + ex.Message;
+                if (prompt) AppHelper.ShowError(ex, "WriteFileEncod", msg);
+                return false;
+            }
+        }
+
         public static bool WriteFile(string filePath, StringBuilder content,
             bool defaultEncoding = false,
             bool iso88591 = false,
@@ -253,8 +278,8 @@ Retry:
             string encodingName = "",
             bool prompt = true)
         {
-            string unused = "";
-            return WriteFile(filePath, content, ref unused, defaultEncoding, iso88591, utf8, utf16,
+            string errorMessage = "";
+            return WriteFileMain(filePath, content, ref errorMessage, defaultEncoding, iso88591, utf8, utf16,
                 encodingCodePage, encodingName, prompt);
         }
 

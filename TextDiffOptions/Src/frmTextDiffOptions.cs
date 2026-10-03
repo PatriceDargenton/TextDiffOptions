@@ -315,7 +315,7 @@ namespace TextDiffOptions
                 }
 
                 if (!WriteFiles(dest1, dest2, path1, origPath1, path2, origPath2,
-                    srcIdx1, srcIdx2, sbOrig1, sbOrig2, enc1Name, enc2Name)) goto Fin;
+                    srcIdx1, srcIdx2, sbOrig1, sbOrig2, enc1Name, enc2Name, enc1, enc2)) goto Fin;
             }
 
             string quotedPath1 = "\"" + path1 + "\"";
@@ -353,7 +353,7 @@ Fin:
             string destPath2, string origPath2,
             int srcIdx1, int srcIdx2,
             StringBuilder orig1, StringBuilder orig2,
-            string encName1, string encName2)
+            string encName1, string encName2, Encoding encod1, Encoding encod2)
         {
             for (int fileNum = 1; fileNum <= 2; fileNum++)
             {
@@ -387,7 +387,15 @@ Fin:
                     page = merged;
                 }
 
-                if (!FileHelper.WriteFile(destPath, page)) return false;
+                if (Const.PreserveEncoding)
+                {
+                    var encod = fileNum == 1 ? encod1 : encod2;
+                    string errorMessage = "";
+                    if (!FileHelper.WriteFileEncod(destPath, page, encod, ref errorMessage, prompt:true))
+                        return false;
+                }
+                else
+                    if (!FileHelper.WriteFile(destPath, page)) return false;
             }
             return true;
         }

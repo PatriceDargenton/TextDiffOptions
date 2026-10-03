@@ -4,7 +4,7 @@ namespace TextDiffOptions
     internal static class Const
     {
         public const string appTitle = "TextDiffOptions";
-        public const string dateVersion = "11/07/2026";
+        public const string dateVersion = "03/10/2026";
 
         public const string newline = "\n"; // Line Feed
         public const string newlineCRLF = "\r\n"; // Carriage Return + Line Feed: Environment.NewLine
@@ -47,5 +47,9 @@ namespace TextDiffOptions
         public const string String3Dots = "…";
 
         public const int NullStringIndex = -1;
+
+        // 03/10/2026 Preserve the original encoding of the input files when
+        //  saving the output files
+        public const bool PreserveEncoding = true; 
     }
 }

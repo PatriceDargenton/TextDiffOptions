@@ -9,8 +9,16 @@
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<ApplicationIcon>TextDiffOptions.ico</ApplicationIcon>
-		<AssemblyVersion>1.0.2.0</AssemblyVersion>
+		<AssemblyVersion>1.0.3.0</AssemblyVersion>
 		<StartupObject>TextDiffOptions.Program</StartupObject>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <NoWarn>1701;1702;CS0162</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <NoWarn>1701;1702;CS0162</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
